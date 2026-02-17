@@ -10,6 +10,7 @@ import numpy as np
 import pandas as pd
 from Bio import SeqIO
 
+'''
 url = 'https://calla.rnet.missouri.edu/genome3d/GSDB/Database/AX9716PF/GSE105544_ENCFF010WBP/VC/LorDG/chr1.pdb'
 # chromosome model used: https://gsdb.mu.hekademeia.org/details.php?id=GSE105544_ENCFF010WBP
 # resolution: 500Kb
@@ -28,13 +29,13 @@ ssl_context = ssl._create_unverified_context()
 with urllib.request.urlopen(url, context=ssl_context) as response:
     with open('chr1.pdb', 'wb') as out_file:
         out_file.write(response.read())
-
+'''
 # Load from local file
-chr_str = md.load_pdb('chr1.pdb')
+chr_str = md.load_pdb('../data/raw/chr1.pdb')
 coords = chr_str.xyz.reshape(-1, 3)
 
 
-fasta_file = '../data/raw/hg38_chr1_FASTA.fasta'
+fasta_file = '../data/raw/GCF_000001405.40_GRCh38.p14_genomic.fna'
 
 sequences = []
 for record in SeqIO.parse(fasta_file, 'fasta'):
@@ -81,6 +82,6 @@ merged_file = pd.concat([
     gc[gc['gc_content_percentage'] != 'telo-centro'].reset_index(drop=True)
 ], axis=1).iloc[:451, :]
 
-merged_file.to_csv('x_y_z_bin_gc.csv')
+merged_file.to_csv('../data/processed/x_y_z_bin_gc.csv')
 
-np.save('x_y_z_bin_gc.npy', merged_file)
+np.save('../data/processed/x_y_z_bin_gc.npy', merged_file)

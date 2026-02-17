@@ -20,6 +20,7 @@ from copy import deepcopy
 #                       DATA LOADING
 # ==========================================================
 
+'''
 url = 'https://calla.rnet.missouri.edu/genome3d/GSDB/Database/AX9716PF/GSE105544_ENCFF010WBP/VC/LorDG/chr1.pdb'
 ssl_context = ssl._create_unverified_context()
 
@@ -27,9 +28,10 @@ ssl_context = ssl._create_unverified_context()
 with urllib.request.urlopen(url, context=ssl_context) as response:
     with open('chr1.pdb', 'wb') as out_file:
         out_file.write(response.read())
+'''
 
 # Load from local file
-chr_str = md.load_pdb('chr1.pdb')
+chr_str = md.load_pdb('../data/raw/chr1.pdb')
 coords = chr_str.xyz.reshape(-1, 3)
 
 # ==========================================================
@@ -71,4 +73,4 @@ chr_com_smooth = np.array(chr_com_smooth)
 
 # ==========================================================
 # save file
-np.save('x_y_z_dist_com_dist_rm.npy', chr_com_smooth)
+np.save('../data/processed/x_y_z_dist_com_dist_rm.npy', chr_com_smooth)

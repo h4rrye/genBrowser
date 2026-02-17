@@ -20,7 +20,7 @@ from copy import deepcopy
 #                       DATA LOADING
 # ==========================================================
 
-
+'''
 # Create unverified context for this specific download
 ssl_context = ssl._create_unverified_context()
 
@@ -30,9 +30,10 @@ url = 'https://calla.rnet.missouri.edu/genome3d/GSDB/Database/AX9716PF/GSE105544
 with urllib.request.urlopen(url, context=ssl_context) as response:
     with open('chr1.pdb', 'wb') as out_file:
         out_file.write(response.read())
+'''
 
 # Load from local file
-chr_str = md.load_pdb('chr1.pdb')
+chr_str = md.load_pdb('../data/raw/chr1.pdb')
 coords = chr_str.xyz.reshape(-1, 3)
 
 # ==========================================================
@@ -167,7 +168,7 @@ coord_dist = np.array(coord_dist)
 #                       SAVING DATA
 # ==========================================================
 
-np.save('x_y_z_dist_surf.npy', coord_dist)
+np.save('../data/processed/x_y_z_dist_surf.npy', coord_dist)
 surface_coords_scaled = surface_coords * bin_size - scaling_factor
-np.save('surface_coords_scaled.npy', surface_coords_scaled)
+np.save('../data/processed/surface_coords_scaled.npy', surface_coords_scaled)
 
