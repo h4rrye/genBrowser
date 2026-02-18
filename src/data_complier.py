@@ -8,6 +8,7 @@ pure data processing and systmes biology analysis.
 import numpy as np
 import polars as pl
 import polars.selectors as cs
+import os
 
 # load the data
 surface = np.load('../data/processed/surface_coords_scaled.npy')
@@ -62,10 +63,19 @@ surface_df = pl.from_numpy(
     cs.float().round(7)
 )
 
-# creating-exporting parquet files
-
+# creating-exporting parquet files | used for python data processing
 combined_df_output_path = '../data/processed/combined_df.parquet'
 surface_df_output_path = '../data/processed/surfacedf.parquet'
 
 combined_df.write_parquet(combined_df_output_path)
 surface_df.write_parquet(surface_df_output_path)
+
+# .bin | used for data visualization
+viz_dir = '../visualization/threejs-vite-typescript/public/data/'
+os.makedirs(viz_dir, exist_ok=True)
+
+combined_np = combined_df.to_numpy().astype(np.float32)
+combined_np.tofile(viz_dir + 'backbone.bin')
+
+surface_np = surface_df.to_numpy().astype(np.float32)
+surface_np.tofile(viz_dir + 'surface.bin')
