@@ -154,7 +154,8 @@ surface_coords = np.argwhere(surface_bins == 1)         # >> indices of bin valu
 
 # coords, surface_coords
 
-surface_coords_scaled = surface_coords * bin_size
+surface_coords_scaled = surface_coords * bin_size - scaling_factor
+coords -= scaling_factor
 
 coord_dist = []
 for coord in coords:
@@ -169,6 +170,6 @@ coord_dist = np.array(coord_dist)
 # ==========================================================
 
 np.save('../data/processed/x_y_z_dist_surf.npy', coord_dist)
-surface_coords_scaled = surface_coords * bin_size - scaling_factor
+# surface_coords_scaled = surface_coords * bin_size - scaling_factor
 np.save('../data/processed/surface_coords_scaled.npy', surface_coords_scaled)
 

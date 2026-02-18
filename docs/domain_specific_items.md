@@ -17,3 +17,11 @@ In bioinformatics, FASTA is the general name for the text-based format that repr
 - **GCA (GenBank Assembly):** These are original submissions to the International Nucleotide Sequence Database Collaboration (INSDC). For GRCh38.p14, GCA_000001405.29 is the latest submitted version from the [Genome Reference Consortium](https://www.ncbi.nlm.nih.gov/assembly/GCA_000001405).
 - **GCF (RefSeq Assembly):** These are NCBI-derived copies of GCA assemblies. NCBI "promotes" certain GenBank genomes to RefSeq status to provide a standardized, curated reference. GCF_000001405.40 is the RefSeq counterpart to the GCA version. 
 
+___
+
+# VISUALIZATION
+
+
+
+using `vite` along with `typescript` and `three.js` to make a professional dashboard.
+
