@@ -8,14 +8,23 @@ export function initControls(backbone: THREE.Mesh, surface: THREE.Points, data: 
   gui.domElement.style.top = '120px'
   gui.domElement.style.right = '20px'
 
-  const state = { colorBy: 'dist_surf', showSurface: true, rotationSpeed: 0.4 }
+  const state = { colorBy: 'dist_surf', showSurface: true, showBackbone: true, rotationSpeed: 2.0, showTooltip: true, isAnimating: false }
+
+  gui.add(state, 'showTooltip').name('Show tooltip')
 
   gui.add(state, 'colorBy', Object.keys(COLUMNS)).name('Color by').onChange(col => {
     updateColors(backbone, data, COLUMNS[col as keyof typeof COLUMNS])
   })
+
   gui.add(state, 'showSurface').name('Show surface').onChange(v => {
     surface.visible = v
   })
+
+  gui.add(state, 'showBackbone').name('Show chromosome').onChange(v => {
+    backbone.visible = v
+  })
+
+  gui.add(state, 'isAnimating').name('Animate')
   gui.add(state, 'rotationSpeed', 0, 50, 0.01).name('Rotation speed')
 
   return state
