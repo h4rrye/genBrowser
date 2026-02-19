@@ -5,7 +5,7 @@ import { updateColors, COLUMNS } from '../renderers/backbone'
 export function initControls(backbone: THREE.Mesh, surface: THREE.Points, data: Float32Array, group: THREE.Group) {
   const gui = new GUI({ title: 'Controls' })
   gui.domElement.style.position = 'absolute'
-  gui.domElement.style.top = '120px'
+  gui.domElement.style.top = '100px'
   gui.domElement.style.right = '20px'
 
   const state = { colorBy: 'dist_surf', showSurface: true, showBackbone: true, rotationSpeed: 2.0, showTooltip: true, isAnimating: false }

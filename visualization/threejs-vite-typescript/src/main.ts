@@ -18,7 +18,7 @@ scene.background = new THREE.Color(0x161617)
 const starfield = createStarfield()
 scene.add(starfield)
 const camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.1, 1000)
-camera.position.set(0, 0, 3)
+camera.position.set(0, 0.9, 3)
 
 scene.add(new THREE.AmbientLight(0xffffff, 0.5))
 const light = new THREE.DirectionalLight(0xffffff, 1)
@@ -42,6 +42,7 @@ Promise.all([loadBin('/data/backbone.bin'), loadBin('/data/surface.bin')]).then(
   group.add(backbone)
   group.add(surface)
   group.rotation.set(0, -1.2, -0.12)
+  group.position.set(0, -0.42, 0)
 
   state = initControls(backbone, surface, backboneData, group)
   initTooltip(canvas, camera, backbone, backboneData, state)

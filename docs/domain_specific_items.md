@@ -7,7 +7,12 @@
 - used multple alms at the same time to reaon and reduce hallucinations and biasness
 - 
 
+____
 
+**STACK**:
+
+- polars, scipy, numpy, pandas
+- typescript, three.js, vite, lil-gui
 
 ____
 
@@ -64,4 +69,13 @@ ___
 
 
 - use `simple preview` `cmd + shift + p` in vs code/cursor/kiro
-- 
+
+
+
+**TODO:**
+
+1. Add bin to the data >>> display the bin on the tooltip
+2. add about page
+   1. flow chart of the entire process
+3. add hyysprk logo & github at the bottom left
+4. deploy the app on github pages
