@@ -1,0 +1,22 @@
+import GUI from 'lil-gui'
+import * as THREE from 'three'
+import { updateColors, COLUMNS } from '../renderers/backbone'
+
+export function initControls(backbone: THREE.Mesh, surface: THREE.Points, data: Float32Array, group: THREE.Group) {
+  const gui = new GUI({ title: 'Controls' })
+  gui.domElement.style.position = 'absolute'
+  gui.domElement.style.top = '120px'
+  gui.domElement.style.right = '20px'
+
+  const state = { colorBy: 'dist_surf', showSurface: true, rotationSpeed: 0.4 }
+
+  gui.add(state, 'colorBy', Object.keys(COLUMNS)).name('Color by').onChange(col => {
+    updateColors(backbone, data, COLUMNS[col as keyof typeof COLUMNS])
+  })
+  gui.add(state, 'showSurface').name('Show surface').onChange(v => {
+    surface.visible = v
+  })
+  gui.add(state, 'rotationSpeed', 0, 50, 0.01).name('Rotation speed')
+
+  return state
+}
