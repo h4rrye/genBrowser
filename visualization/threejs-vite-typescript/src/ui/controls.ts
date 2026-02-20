@@ -2,7 +2,7 @@ import GUI from 'lil-gui'
 import * as THREE from 'three'
 import { updateColors, COLUMNS } from '../renderers/backbone'
 
-export function initControls(backbone: THREE.Mesh, surface: THREE.Points, data: Float32Array, group: THREE.Group) {
+export function initControls(backbone: THREE.Mesh, surface: THREE.Points, data: Float32Array, _group: THREE.Group) {
   const gui = new GUI({ title: 'Controls' })
   gui.domElement.style.position = 'absolute'
   gui.domElement.style.top = '100px'
@@ -12,15 +12,15 @@ export function initControls(backbone: THREE.Mesh, surface: THREE.Points, data: 
 
   gui.add(state, 'showTooltip').name('Show tooltip')
 
-  gui.add(state, 'colorBy', Object.keys(COLUMNS)).name('Color by').onChange(col => {
+  gui.add(state, 'colorBy', Object.keys(COLUMNS)).name('Color by').onChange((col: string) => {
     updateColors(backbone, data, COLUMNS[col as keyof typeof COLUMNS])
   })
 
-  gui.add(state, 'showSurface').name('Show surface').onChange(v => {
+  gui.add(state, 'showSurface').name('Show surface').onChange((v: boolean) => {
     surface.visible = v
   })
 
-  gui.add(state, 'showBackbone').name('Show chromosome').onChange(v => {
+  gui.add(state, 'showBackbone').name('Show chromosome').onChange((v: boolean) => {
     backbone.visible = v
   })
 

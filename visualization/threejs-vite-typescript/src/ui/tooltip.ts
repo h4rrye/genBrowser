@@ -71,8 +71,8 @@ export function initTooltip(
     // Map hit point to nearest bead index
     const t = hits[0].distance / backbone.geometry.boundingSphere!.radius
     const beadIndex = Math.min(
-      Math.floor((hits[0].faceIndex! / (backbone.geometry.index!.count / 3)) * (backboneData.length / 7)),
-      backboneData.length / 7 - 1
+        Math.floor((hits[0].faceIndex! / (backbone.geometry.index!.count / 3)) * (backboneData.length / 7)),
+        backboneData.length / 7 - 1
     )
 
     const values = normalized.map(col => col[beadIndex])
