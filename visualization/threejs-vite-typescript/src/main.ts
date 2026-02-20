@@ -35,7 +35,7 @@ scene.add(group)
 
 let state: any
 
-Promise.all([loadBin('/data/backbone.bin'), loadBin('/data/surface.bin')]).then(([backboneData, surfaceData]) => {
+Promise.all([loadBin('data/backbone.bin'), loadBin('data/surface.bin')]).then(([backboneData, surfaceData]) => {
   const backbone = createBackbone(backboneData)
   const surface = createSurface(surfaceData)
 
