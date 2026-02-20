@@ -42,7 +42,7 @@ Promise.all([loadBin('/data/backbone.bin'), loadBin('/data/surface.bin')]).then(
   group.add(backbone)
   group.add(surface)
   group.rotation.set(0, -1.2, -0.12)
-  group.position.set(0, -0.42, 0)
+  group.position.set(0, -0.52, 0)
 
   state = initControls(backbone, surface, backboneData, group)
   initTooltip(canvas, camera, backbone, backboneData, state)
