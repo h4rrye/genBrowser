@@ -53,6 +53,10 @@ npm install
 npm run dev
 ```
 
+## Related
+
+This project is part of a series exploring 3D chromosome structure and chromatin accessibility. **[ChromApipe](https://github.com/h4rrye/chromApipe)** extends this work into a Nextflow pipeline that runs the CSAA algorithm across all 22 autosomes, integrates genomic annotations via the Ensembl REST API, and outputs analysis-ready Parquet files.
+
 ## License
 
 MIT
