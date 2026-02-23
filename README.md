@@ -1,4 +1,4 @@
-# GenBrowser
+# genBrowser
 
 Interactive 3D chromosome visualization dashboard mapping biological and physical metrics onto a chromosome 1 structural model. Built with Three.js and TypeScript, deployed on GitHub Pages.
 
@@ -6,7 +6,7 @@ Interactive 3D chromosome visualization dashboard mapping biological and physica
 
 ## About
 
-This project visualizes human chromosome I along with various biological properties and physical attributes. It calculates the **Chromosome Surface Accessible Area (CSAA)** around the chromosome to study open/closed chromatin regions and their relationship to biological functions — a proposed alternative to ATAC-Seq.
+This project visualizes human chromosome I along with various biological properties and physical attributes. It calculates the **Chromosome Surface Accessible Area (CSAA)** around the chromosome to study open/closed chromatin regions and their relationship to biological functions - a proposed alternative to ATAC-Seq.
 
 The CSAA algorithm is derived from protein **Solvent Accessible Surface Area (SASA)**, adapted to study chromatin accessibility at 500kb resolution using 3D chromosome structures from GSDB.
 
