@@ -12,7 +12,7 @@ The CSAA algorithm is derived from protein **Solvent Accessible Surface Area (SA
 
 ## Architecture
 
-![Genbrowser Architecture](docs/imgs/Genbrowser Architecture.png)
+![Genbrowser Architecture](docs/imgs/genbrowser_architecture.png)
 
 ## Data Processing
 
